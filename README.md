@@ -20,7 +20,13 @@ mysql> source /path/to/migration.sql;
 mysql> exit;
 ```
 
-**2. Go to the main package folder and run it:**
+**2. Copy file .env.dist to .env and set up your local database settings there:**
+
+```
+$ cp .env.dist .env
+```
+
+**3. Go to the main package folder and run it:**
 
 ```
 $ cd main
