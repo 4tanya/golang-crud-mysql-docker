@@ -1,17 +1,25 @@
 DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS genres;
+
+CREATE TABLE genres (
+  value         INT AUTO_INCREMENT NOT NULL,
+  name      VARCHAR(128) NOT NULL,
+  PRIMARY KEY (`value`)
+);
+
 CREATE TABLE books (
   id         INT AUTO_INCREMENT NOT NULL,
   name      VARCHAR(128) NOT NULL,
   price      DECIMAL(5,2) NOT NULL,
   genre     INT NOT NULL,
   amount     INT NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`genre`) REFERENCES genres(`value`)
 );
 
-INSERT INTO books
-  (name, price, genre, amount)
+INSERT INTO genres
+  (name, value)
 VALUES
-  ('Blue Train', 56.99, 1, 23),
-  ('Giant Steps', 63.99, 2, 12),
-  ('Jeru', 17.99, 3, 42),
-  ('Sarah Vaughan', 34.98, 2, 3);
+  ('Adventure', 1),
+  ('Classics', 2),
+  ('Fantasy', 3);
